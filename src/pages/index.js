@@ -1,31 +1,39 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
+import Box from '@material-ui/core/Box';
+import Grid from '@material-ui/core/Grid';
+import Card from '@material-ui/core/Card';
 
 import Layout from "../components/layout"
-import Image from "../components/image"
 import SEO from "../components/seo"
 
 const IndexPage = ({ data }) => (
   <Layout>
-    {console.log(data)}
     <SEO title="Home" />
-    <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
-    <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
-      <Image />
-    </div>
-    <Link to="/page-2/">Go to page 2</Link> <br />
-    <Link to="/using-typescript/">Go to "Using TypeScript"</Link>
+    <Box mt={2}>
+      <Grid container spacing={2}>
+        {data.allStrapiLaunch.edges.map(({ node }) => (
+          <Grid key={node.id} item xs={6} sm={4} md={2}>
+            <Card>
+              {node.id}
+            </Card>
+          </Grid>
+        ))}
+      </Grid>
+    </Box>
   </Layout>
 )
 
 export const query = graphql`
-  query {
-    strapiLaunch {
-      id
-      date
-      url
+  {
+    allStrapiLaunch {
+      edges {
+        node {
+          id
+          date
+          url
+        }
+      }
     }
   }
 `
