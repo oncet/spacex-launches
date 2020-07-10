@@ -38,7 +38,7 @@ const IndexPage = ({ data }) => {
           </Typography>
           <Grid container spacing={2}>
             {ongoingLaunches.map(({ node }) => (
-              <Grid key={node.id} item xs={6} sm={4} md={2}>
+              <Grid key={node.id} item xs={12} sm={6}>
                 <LaunchCard node={node} />
               </Grid>
             ))}
@@ -48,7 +48,7 @@ const IndexPage = ({ data }) => {
           </Typography>
           <Grid container spacing={2}>
             {incomingLaunches.map(({ node }) => (
-              <Grid key={node.id} item xs={6} sm={4} md={2}>
+              <Grid key={node.id} item xs={12} sm={6}>
                 <LaunchCard node={node} />
               </Grid>
             ))}
@@ -58,7 +58,7 @@ const IndexPage = ({ data }) => {
           </Typography>
           <Grid container spacing={2}>
             {pastLaunches.map(({ node }) => (
-              <Grid key={node.id} item xs={6} sm={4} md={2}>
+              <Grid key={node.id} item xs={12} sm={6}>
                 <LaunchCard node={node} />
               </Grid>
             ))}
